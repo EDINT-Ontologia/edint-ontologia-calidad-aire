@@ -1,6 +1,5 @@
 # Ontología EDINT de Sensores Medioambientales, caso Calidad del Aire (EDINT Environmental Sensors Ontology)
 
-
 Este repositorio reutiliza el patrón general definido en la [Ontología de Medioambiente](https://github.com/oeg-upm/edint-ontologia-medio-ambiente/tree/a09f6a58ac148cebdec8d7ac49f0ba707cbda6ac) para representar estaciones, sensores y observaciones medioambientales. En dicha ontología, se adopta una modelización común basada en una plataforma de sensores (`SensorPlatform`), sensores medioambientales (`EnvironmentalSensor`) y observaciones medioambientales (`EnvironmentalObservation`).
 
 En este caso, dicho patrón se aplica específicamente al dominio de la calidad del aire. Para ello, la especialización no se realiza a través de vocabularios controlados SKOS que permiten clasificar y restringir semánticamente los elementos del modelo.
@@ -17,13 +16,10 @@ En la carpeta [`./examples`](./examples) se incluye una serie de ejemplos que mu
 
 # Estructura del repositorio (Repository structure)
 
-| Folder | Description |
-|--------|--------------|
+| Folder              | Description                                                                                             |
+| ------------------- | ------------------------------------------------------------------------------------------------------- |
 | **examples/** | Incluye ejemplos que demuestran cómo instanciar o aplicar la ontología en escenarios de datos reales. |
-| **mappings/** | Incluye mappings RML que ejemplifican la transformación de orígenes de datos en datos enlazados. |
-| **shapes/** | Contiene los SHACL utilizadas para definir y validar las restricciones de la ontología.  |
-
-
+| **shapes/**   | Contiene los SHACL utilizadas para definir y validar las restricciones de la ontología.                |
 
 # Mantenimiento y evolución (Maintenance and evolution)
 
@@ -33,6 +29,4 @@ Para manejar las incidencias o mejoras sugeridas con respecto a la ontología, r
 
 Esta ontología ha sido desarrollada en el contexto del Espacio de Datos para las Infraestructuras Urbanas Inteligentes ([EDINT](https://edint.es/)).
 
-
 ![Logos](./resources/EDINT_UE_V-Color.png)
-
