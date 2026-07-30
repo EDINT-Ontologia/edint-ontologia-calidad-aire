@@ -21,9 +21,9 @@ En la carpeta [`./examples`](./examples) se incluye una serie de ejemplos que mu
 | **examples/** | Incluye ejemplos que demuestran cómo instanciar o aplicar la ontología en escenarios de datos reales. |
 | **shapes/**   | Contiene los SHACL utilizadas para definir y validar las restricciones de la ontología.                |
 
-# Mantenimiento y evolución (Project maintenance)
+# Mantenimiento y evolución (Maintenance and evolution)
 
-Para manejar las incidencias o mejoras sugeridas con respecto a la ontología, recomendamos seguir las guía proporcionadas en ([Issues Management](https://github.com/telefonicasc/edint-ontologia-suministro/issues)) para generar una incidencia (trabajo en progreso).
+Para manejar las incidencias o mejoras sugeridas con respecto a la ontología, recomendamos seguir las guías proporcionadas en ([Issues Management](./ISSUES.md)) para generar una incidencia.
 
 # Financiación (Funding)
 
