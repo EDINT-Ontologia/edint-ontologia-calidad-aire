@@ -1,0 +1,285 @@
+prefixes:
+#  edintmed: https://edint.es/def/medioambiente#
+  edintmed: https://edint.es/def/medioambiente#
+  dct: http://purl.org/dc/terms/
+  geo: http://www.w3.org/2003/01/geo/wgs84_pos#
+  gsp: http://www.opengis.net/ont/geosparql#
+  sosa: http://www.w3.org/ns/sosa/
+  qudt: http://qudt.org/schema/qudt/
+#  edintkos-vars: https://edint.es/kos/EnvironmentalProperty/
+  edintkos-vars: https://edint.es/kos/edint/EnvironmentalProperty/
+  edintkos-sensortypes: https://edint.es/kos/edint/sensortypes/
+  edintkos-foi: https://edint.es/kos/edint/foi/
+  unit: http://qudt.org/vocab/unit/
+  time: http://www.w3.org/2006/time#
+
+sources:
+  air-quality-source: ['calidad_aire_normalizado.csv~csv']
+
+mappings:
+# ESTACIÓN DE MEDICIÓN
+  sensor_platform:
+    sources:
+      - air-quality-source
+#    s: https://example.org/recurso/<nombre-clase/<id-recurso>
+    s:  https://example.org/recurso/estacion-de-sensores/$(refDevice)
+    po:
+      - [a, edintmed:SensorPlatform]
+      - [dct:identifier, "$(refDevice)"]
+      - [gsp:hasGeometry, "https://example.org/recurso/geometria/$(refDevice)~iri"]
+      - [sosa:hosts, "https://example.org/recurso/sensor/$(refDevice)/CO~iri"]
+      - [sosa:hosts, "https://example.org/recurso/sensor/$(refDevice)/H2S~iri"]
+      - [sosa:hosts, "https://example.org/recurso/sensor/$(refDevice)/NO~iri"]
+      - [sosa:hosts, "https://example.org/recurso/sensor/$(refDevice)/NO2~iri"]
+      - [sosa:hosts, "https://example.org/recurso/sensor/$(refDevice)/O3~iri"]
+      - [sosa:hosts, "https://example.org/recurso/sensor/$(refDevice)/SO2~iri"]
+
+  platform_geometry:
+    sources:
+      - air-quality-source
+    s: https://example.org/recurso/geometria/$(refDevice)
+    po:
+      - [a, gsp:Geometry]
+      - [gsp:asGeoJSON, "$(location)", gsp:geoJSONLiteral]
+
+  sensor_CO:
+    sources:
+      - air-quality-source
+    s: https://example.org/recurso/sensor/$(refDevice)/CO
+    po:
+      - [a, edintmed:EnvironmentalSensor]
+      - [dct:identifier, "$(refDevice)-CO"]
+      - [edintmed:hasSensorType, edintkos-sensortypes:AirQualitySensor]
+      - [sosa:isHostedBy, "https://example.org/recurso/plataforma/$(refDevice)~iri"]
+      - [sosa:observes, edintkos-vars:COConcentration]
+
+  sensor_H2S:
+    sources:
+      - air-quality-source
+    s: https://example.org/recurso/sensor/$(refDevice)/H2S
+    po:
+      - [a, edintmed:EnvironmentalSensor]
+      - [dct:identifier, "$(refDevice)-H2S"]
+      - [edintmed:hasSensorType, edintkos-sensortypes:AirQualitySensor]
+      - [sosa:isHostedBy, "https://example.org/recurso/plataforma/$(refDevice)~iri"]
+      - [sosa:observes, edintkos-vars:H2SConcentration]
+
+  sensor_NO:
+    sources:
+      - air-quality-source
+    s: https://example.org/recurso/sensor/$(refDevice)/NO
+    po:
+      - [a, edintmed:EnvironmentalSensor]
+      - [dct:identifier, "$(refDevice)-NO"]
+      - [edintmed:hasSensorType, edintkos-sensortypes:AirQualitySensor]
+      - [sosa:isHostedBy, "https://example.org/recurso/plataforma/$(refDevice)~iri"]
+      - [sosa:observes, edintkos-vars:NOConcentration]
+
+  sensor_NO2:
+    sources:
+      - air-quality-source
+    s: https://example.org/recurso/sensor/$(refDevice)/NO2
+    po:
+      - [a, edintmed:EnvironmentalSensor]
+      - [dct:identifier, "$(refDevice)-NO2"]
+      - [edintmed:hasSensorType, edintkos-sensortypes:AirQualitySensor]
+      - [sosa:isHostedBy, "https://example.org/recurso/plataforma/$(refDevice)~iri"]
+      - [sosa:observes, edintkos-vars:NO2Concentration]
+
+  sensor_O3:
+    sources:
+      - air-quality-source
+    s: https://example.org/recurso/sensor/$(refDevice)/O3
+    po:
+      - [a, edintmed:EnvironmentalSensor]
+      - [dct:identifier, "$(refDevice)-O3"]
+      - [edintmed:hasSensorType, edintkos-sensortypes:AirQualitySensor]
+      - [sosa:isHostedBy, "https://example.org/recurso/plataforma/$(refDevice)~iri"]
+      - [sosa:observes, edintkos-vars:O3Concentration]
+
+  sensor_SO2:
+    sources:
+      - air-quality-source
+    s: https://example.org/recurso/sensor/$(refDevice)/SO2
+    po:
+      - [a, edintmed:EnvironmentalSensor]
+      - [dct:identifier, "$(refDevice)-SO2"]
+      - [edintmed:hasSensorType, edintkos-sensortypes:AirQualitySensor]
+      - [sosa:isHostedBy, "https://example.org/recurso/plataforma/$(refDevice)~iri"]
+      - [sosa:observes, edintkos-vars:SO2Concentration]
+
+  observation_CO:
+    sources:
+      - air-quality-source
+    s: https://example.org/recurso/observacion/$(_id)/CO
+    po:
+      - [a, edintmed:EnvironmentalObservation]
+#      - [dct:identifier, "$(entityId)-$(_id)-CO"]
+      - [sosa:madeBySensor, "https://example.org/recurso/sensor/$(refDevice)/CO~iri"]
+      - [sosa:observedProperty, edintkos-vars:COConcentration]
+      - [sosa:hasFeatureOfInterest, edintkos-foi:Air]
+      - [sosa:phenomenonTime, "https://example.org/recurso/instante/$(_id)~iri"]
+      - [sosa:hasResult, "https://example.org/recurso/resultadoObservacion/$(_id)/CO~iri"]
+      - [dct:publisher, "$(dataProvider)", xsd:anyURI]
+      - [dct:source, "$(source)"]
+      - p: dct:identifier
+        o:
+          value: "$(entityId)-$(_id)-CO"
+          type: literal
+
+  result_CO:
+    sources:
+      - air-quality-source
+    s: https://example.org/recurso/resultadoObservacion/$(_id)/CO
+    po:
+      - [a, qudt:QuantityValue]
+      - [qudt:value, $(CO)]
+#      - [qudt:unit, unit:MilliGM-PER-M3] No se describe la unidad de medida
+
+  observation_H2S:
+    sources:
+      - air-quality-source
+    s: https://example.org/recurso/observacion/$(_id)/H2S
+    po:
+      - [a, edintmed:EnvironmentalObservation]
+#      - [dct:identifier, $(entityId)-$(_id)-H2S]
+      - [sosa:madeBySensor, "https://example.org/recurso/sensor/$(refDevice)/H2S~iri"]
+      - [sosa:observedProperty, edintkos-vars:H2SConcentration]
+      - [sosa:hasFeatureOfInterest, edintkos-foi:Air]
+      - [sosa:phenomenonTime, "https://example.org/recurso/instante/$(_id)~iri"]
+      - [sosa:hasResult, "https://example.org/recurso/resultadoObservacion/$(_id)/H2S~iri"]
+      - [dct:publisher, "$(dataProvider)", xsd:anyURI]
+      - [dct:source, "$(source)"]
+      - p: dct:identifier
+        o:
+          value: "$(entityId)-$(_id)-H2S"
+          type: literal
+
+
+
+  result_H2S:
+    sources:
+      - air-quality-source
+    s: https://example.org/recurso/resultadoObservacion/$(_id)/H2S
+    po:
+      - [a, qudt:QuantityValue]
+      - [qudt:value, $(H2S)]
+#      - [qudt:unit, unit:MicroGM-PER-M3]
+
+  observation_NO:
+    sources:
+      - air-quality-source
+    s: https://example.org/recurso/observacion/$(_id)/NO
+    po:
+      - [a, edintmed:EnvironmentalObservation]
+#      - [dct:identifier, "$(entityId)-$(_id)-NO"]
+      - [sosa:madeBySensor, "https://example.org/recurso/sensor/$(refDevice)/NO~iri"]
+      - [sosa:observedProperty, edintkos-vars:NOConcentration]
+      - [sosa:hasFeatureOfInterest, edintkos-foi:Air]
+      - [sosa:phenomenonTime, "https://example.org/recurso/instante/$(_id)~iri"]
+      - [sosa:hasResult, "https://example.org/recurso/resultadoObservacion/$(_id)/NO~iri"]
+      - [dct:publisher, "$(dataProvider)", xsd:anyURI]
+      - [dct:source, "$(source)"]
+      - p: dct:identifier
+        o:
+          value: "$(entityId)-$(_id)-NO"
+          type: literal
+
+  result_NO:
+    sources:
+      - air-quality-source
+    s: https://example.org/recurso/resultadoObservacion/$(_id)/NO
+    po:
+      - [a, qudt:QuantityValue]
+      - [qudt:value, $(NO)]
+#      - [qudt:unit, unit:MicroGM-PER-M3]
+
+  observation_NO2:
+    sources:
+      - air-quality-source
+    s: https://example.org/recurso/observacion/$(_id)/NO2
+    po:
+      - [a, edintmed:EnvironmentalObservation]
+#      - [dct:identifier, "$(entityId)-$(_id)-NO2"]
+      - [sosa:madeBySensor, "https://example.org/recurso/sensor/$(refDevice)/NO2~iri"]
+      - [sosa:observedProperty, edintkos-vars:NO2Concentration]
+      - [sosa:hasFeatureOfInterest, edintkos-foi:Air]
+      - [sosa:phenomenonTime, "https://example.org/recurso/instante/$(_id)~iri"]
+      - [sosa:hasResult, "https://example.org/recurso/resultadoObservacion/$(_id)/NO2~iri"]
+      - [dct:publisher, "$(dataProvider)", xsd:anyURI]
+      - [dct:source, "$(source)"]
+      - p: dct:identifier
+        o:
+          value: "$(entityId)-$(_id)-NO2"
+          type: literal
+
+  result_NO2:
+    sources:
+      - air-quality-source
+    s: https://example.org/recurso/resultadoObservacion/$(_id)/NO2
+    po:
+      - [a, qudt:QuantityValue]
+      - [qudt:value, $(NO2)]
+#      - [qudt:unit, unit:MicroGM-PER-M3]
+
+  observation_O3:
+    sources:
+      - air-quality-source
+    s: https://example.org/recurso/observacion/$(_id)/O3
+    po:
+      - [a, edintmed:EnvironmentalObservation]
+#      - [dct:identifier, "$(entityId)-$(_id)-O3"]
+      - [sosa:madeBySensor, "https://example.org/recurso/sensor/$(refDevice)/O3~iri"]
+      - [sosa:observedProperty, edintkos-vars:O3Concentration]
+      - [sosa:hasFeatureOfInterest, edintkos-foi:Air]
+      - [sosa:phenomenonTime, "https://example.org/recurso/instante/$(_id)~iri"]
+      - [sosa:hasResult, "https://example.org/recurso/resultadoObservacion/$(_id)/O3~iri"]
+      - [dct:publisher, "$(dataProvider)", xsd:anyURI]
+      - [dct:source, "$(source)"]
+      - p: dct:identifier
+        o:
+          value: "$(entityId)-$(_id)-O3"
+          type: literal
+
+  result_O3:
+    sources: [air-quality-source]
+    s: https://example.org/recurso/resultadoObservacion/$(_id)/O3
+    po:
+      - [a, qudt:QuantityValue]
+      - [qudt:value, $(O3)]
+#      - [qudt:unit, unit:MicroGM-PER-M3]
+
+  observation_SO2:
+    sources:
+      - air-quality-source
+    s: https://example.org/recurso/observacion/$(_id)/SO2
+    po:
+      - [a, edintmed:EnvironmentalObservation]
+#      - [dct:identifier, "$(entityId)-$(_id)-SO2"]
+      - [sosa:madeBySensor, "https://example.org/recurso/sensor/$(refDevice)/SO2~iri"]
+      - [sosa:observedProperty, edintkos-vars:SO2Concentration]
+      - [sosa:hasFeatureOfInterest, edintkos-foi:Air]
+      - [sosa:phenomenonTime, "https://example.org/recurso/instante/$(_id)~iri"]
+      - [sosa:hasResult, "https://example.org/recurso/resultadoObservacion/$(_id)/SO2~iri"]
+      - [dct:publisher, "$(dataProvider)", xsd:anyURI]
+      - [dct:source, "$(source)"]
+      - p: dct:identifier
+        o:
+          value: "$(entityId)-$(_id)-SO2"
+          type: literal
+
+  result_SO2:
+    sources: [air-quality-source]
+    s: https://example.org/recurso/resultadoObservacion/$(_id)/SO2
+    po:
+      - [a, qudt:QuantityValue]
+      - [qudt:value, $(SO2)]
+#      - [qudt:unit, unit:MicroGM-PER-M3]
+
+  phenomenon_time:
+    sources:
+      - air-quality-source
+    s: https://example.org/recurso/instante/$(_id)
+    po:
+      - [a, time:Instant]
+      - [time:inXSDDateTime, "$(recvTime)", xsd:dateTime]

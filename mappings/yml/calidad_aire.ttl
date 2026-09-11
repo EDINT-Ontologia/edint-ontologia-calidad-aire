@@ -1,0 +1,1464 @@
+@prefix edintmed: <https://edint.es/def/medioambiente#>.
+@prefix dct: <http://purl.org/dc/terms/>.
+@prefix geo: <http://www.w3.org/2003/01/geo/wgs84_pos#>.
+@prefix gsp: <http://www.opengis.net/ont/geosparql#>.
+@prefix sosa: <http://www.w3.org/ns/sosa/>.
+@prefix qudt: <http://qudt.org/schema/qudt/>.
+@prefix edintkos-vars: <https://edint.es/kos/edint/EnvironmentalProperty/>.
+@prefix edintkos-sensortypes: <https://edint.es/kos/edint/sensortypes/>.
+@prefix edintkos-foi: <https://edint.es/kos/edint/foi/>.
+@prefix unit: <http://qudt.org/vocab/unit/>.
+@prefix time: <http://www.w3.org/2006/time#>.
+@prefix rr: <http://www.w3.org/ns/r2rml#>.
+@prefix rml: <http://semweb.mmlab.be/ns/rml#>.
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+@prefix ql: <http://semweb.mmlab.be/ns/ql#>.
+@prefix d2rq: <http://www.wiwiss.fu-berlin.de/suhl/bizer/D2RQ/0.1#>.
+@prefix foaf: <http://xmlns.com/foaf/0.1/>.
+@prefix schema: <http://schema.org/>.
+@prefix formats: <http://www.w3.org/ns/formats/>.
+@prefix comp: <http://semweb.mmlab.be/ns/rml-compression#>.
+@prefix void: <http://rdfs.org/ns/void#>.
+@prefix fnml: <http://semweb.mmlab.be/ns/fnml#>.
+@prefix grel: <http://users.ugent.be/~bjdmeest/function/grel.ttl#>.
+@prefix map: <http://mapping.example.com/> .
+@base <http://example.com/ns#>.
+
+map:rules_000
+    rdf:type schema:Dataset ;
+    schema:version "1.0.0" ;
+    schema:title "Mappings RML para transformar datos de Calidad del Aire a RDF (EDINT Calidad del Aire)" ;
+    schema:dateCreated "11-09-2026" ;
+    schema:description "Este conjunto de mappings RML transforma datos de calidad del aire a RDF, utilizando la ontología EDINT MedioAmbiente. El objetivo es generar un grafo RDF interoperable para representar estaciones de medición, sensores, observaciones y resultados asociados a diferentes contaminantes atmosféricos, a partir del conjunto de datos de calidad del aire del portal de datos abiertos de la Diputación de Badajoz." .
+
+<sensor_platform_0> a rr:TriplesMap;
+
+	rml:logicalSource [
+		a rml:LogicalSource;
+		rml:source "calidad_aire_normalizado.csv";
+		rml:referenceFormulation ql:CSV
+
+	];
+	rr:subjectMap [
+		a rr:SubjectMap;
+		rr:template "https://example.org/recurso/estacion-de-sensores/{refDevice}";
+	];
+	rr:predicateObjectMap [
+		rr:predicateMap [
+			a rr:PredicateMap;
+			rr:constant rdf:type;
+		];
+		rr:objectMap [
+			a rr:ObjectMap;
+			rr:constant edintmed:SensorPlatform;
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicateMap [
+			a rr:PredicateMap;
+			rr:constant dct:identifier;
+		];
+		rr:objectMap [
+			a rr:ObjectMap;
+			rml:reference "refDevice";
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicateMap [
+			a rr:PredicateMap;
+			rr:constant gsp:hasGeometry;
+		];
+		rr:objectMap [
+			a rr:ObjectMap;
+			rr:template "https://example.org/recurso/geometria/{refDevice}";
+			rr:termType rr:IRI
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicateMap [
+			a rr:PredicateMap;
+			rr:constant sosa:hosts;
+		];
+		rr:objectMap [
+			a rr:ObjectMap;
+			rr:template "https://example.org/recurso/sensor/{refDevice}/CO";
+			rr:termType rr:IRI
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicateMap [
+			a rr:PredicateMap;
+			rr:constant sosa:hosts;
+		];
+		rr:objectMap [
+			a rr:ObjectMap;
+			rr:template "https://example.org/recurso/sensor/{refDevice}/H2S";
+			rr:termType rr:IRI
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicateMap [
+			a rr:PredicateMap;
+			rr:constant sosa:hosts;
+		];
+		rr:objectMap [
+			a rr:ObjectMap;
+			rr:template "https://example.org/recurso/sensor/{refDevice}/NO";
+			rr:termType rr:IRI
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicateMap [
+			a rr:PredicateMap;
+			rr:constant sosa:hosts;
+		];
+		rr:objectMap [
+			a rr:ObjectMap;
+			rr:template "https://example.org/recurso/sensor/{refDevice}/NO2";
+			rr:termType rr:IRI
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicateMap [
+			a rr:PredicateMap;
+			rr:constant sosa:hosts;
+		];
+		rr:objectMap [
+			a rr:ObjectMap;
+			rr:template "https://example.org/recurso/sensor/{refDevice}/O3";
+			rr:termType rr:IRI
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicateMap [
+			a rr:PredicateMap;
+			rr:constant sosa:hosts;
+		];
+		rr:objectMap [
+			a rr:ObjectMap;
+			rr:template "https://example.org/recurso/sensor/{refDevice}/SO2";
+			rr:termType rr:IRI
+		];
+	].
+
+
+<platform_geometry_0> a rr:TriplesMap;
+
+	rml:logicalSource [
+		a rml:LogicalSource;
+		rml:source "calidad_aire_normalizado.csv";
+		rml:referenceFormulation ql:CSV
+
+	];
+	rr:subjectMap [
+		a rr:SubjectMap;
+		rr:template "https://example.org/recurso/geometria/{refDevice}";
+	];
+	rr:predicateObjectMap [
+		rr:predicateMap [
+			a rr:PredicateMap;
+			rr:constant rdf:type;
+		];
+		rr:objectMap [
+			a rr:ObjectMap;
+			rr:constant gsp:Geometry;
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicateMap [
+			a rr:PredicateMap;
+			rr:constant gsp:asGeoJSON;
+		];
+		rr:objectMap [
+			a rr:ObjectMap;
+			rml:reference "location";
+			rr:datatype gsp:geoJSONLiteral
+		];
+	].
+
+
+<sensor_CO_0> a rr:TriplesMap;
+
+	rml:logicalSource [
+		a rml:LogicalSource;
+		rml:source "calidad_aire_normalizado.csv";
+		rml:referenceFormulation ql:CSV
+
+	];
+	rr:subjectMap [
+		a rr:SubjectMap;
+		rr:template "https://example.org/recurso/sensor/{refDevice}/CO";
+	];
+	rr:predicateObjectMap [
+		rr:predicateMap [
+			a rr:PredicateMap;
+			rr:constant rdf:type;
+		];
+		rr:objectMap [
+			a rr:ObjectMap;
+			rr:constant edintmed:EnvironmentalSensor;
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicateMap [
+			a rr:PredicateMap;
+			rr:constant dct:identifier;
+		];
+		rr:objectMap [
+			a rr:ObjectMap;
+			rr:template "{refDevice}-CO";
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicateMap [
+			a rr:PredicateMap;
+			rr:constant edintmed:hasSensorType;
+		];
+		rr:objectMap [
+			a rr:ObjectMap;
+			rr:constant edintkos-sensortypes:AirQualitySensor;
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicateMap [
+			a rr:PredicateMap;
+			rr:constant sosa:isHostedBy;
+		];
+		rr:objectMap [
+			a rr:ObjectMap;
+			rr:template "https://example.org/recurso/plataforma/{refDevice}";
+			rr:termType rr:IRI
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicateMap [
+			a rr:PredicateMap;
+			rr:constant sosa:observes;
+		];
+		rr:objectMap [
+			a rr:ObjectMap;
+			rr:constant edintkos-vars:COConcentration;
+		];
+	].
+
+
+<sensor_H2S_0> a rr:TriplesMap;
+
+	rml:logicalSource [
+		a rml:LogicalSource;
+		rml:source "calidad_aire_normalizado.csv";
+		rml:referenceFormulation ql:CSV
+
+	];
+	rr:subjectMap [
+		a rr:SubjectMap;
+		rr:template "https://example.org/recurso/sensor/{refDevice}/H2S";
+	];
+	rr:predicateObjectMap [
+		rr:predicateMap [
+			a rr:PredicateMap;
+			rr:constant rdf:type;
+		];
+		rr:objectMap [
+			a rr:ObjectMap;
+			rr:constant edintmed:EnvironmentalSensor;
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicateMap [
+			a rr:PredicateMap;
+			rr:constant dct:identifier;
+		];
+		rr:objectMap [
+			a rr:ObjectMap;
+			rr:template "{refDevice}-H2S";
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicateMap [
+			a rr:PredicateMap;
+			rr:constant edintmed:hasSensorType;
+		];
+		rr:objectMap [
+			a rr:ObjectMap;
+			rr:constant edintkos-sensortypes:AirQualitySensor;
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicateMap [
+			a rr:PredicateMap;
+			rr:constant sosa:isHostedBy;
+		];
+		rr:objectMap [
+			a rr:ObjectMap;
+			rr:template "https://example.org/recurso/plataforma/{refDevice}";
+			rr:termType rr:IRI
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicateMap [
+			a rr:PredicateMap;
+			rr:constant sosa:observes;
+		];
+		rr:objectMap [
+			a rr:ObjectMap;
+			rr:constant edintkos-vars:H2SConcentration;
+		];
+	].
+
+
+<sensor_NO_0> a rr:TriplesMap;
+
+	rml:logicalSource [
+		a rml:LogicalSource;
+		rml:source "calidad_aire_normalizado.csv";
+		rml:referenceFormulation ql:CSV
+
+	];
+	rr:subjectMap [
+		a rr:SubjectMap;
+		rr:template "https://example.org/recurso/sensor/{refDevice}/NO";
+	];
+	rr:predicateObjectMap [
+		rr:predicateMap [
+			a rr:PredicateMap;
+			rr:constant rdf:type;
+		];
+		rr:objectMap [
+			a rr:ObjectMap;
+			rr:constant edintmed:EnvironmentalSensor;
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicateMap [
+			a rr:PredicateMap;
+			rr:constant dct:identifier;
+		];
+		rr:objectMap [
+			a rr:ObjectMap;
+			rr:template "{refDevice}-NO";
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicateMap [
+			a rr:PredicateMap;
+			rr:constant edintmed:hasSensorType;
+		];
+		rr:objectMap [
+			a rr:ObjectMap;
+			rr:constant edintkos-sensortypes:AirQualitySensor;
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicateMap [
+			a rr:PredicateMap;
+			rr:constant sosa:isHostedBy;
+		];
+		rr:objectMap [
+			a rr:ObjectMap;
+			rr:template "https://example.org/recurso/plataforma/{refDevice}";
+			rr:termType rr:IRI
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicateMap [
+			a rr:PredicateMap;
+			rr:constant sosa:observes;
+		];
+		rr:objectMap [
+			a rr:ObjectMap;
+			rr:constant edintkos-vars:NOConcentration;
+		];
+	].
+
+
+<sensor_NO2_0> a rr:TriplesMap;
+
+	rml:logicalSource [
+		a rml:LogicalSource;
+		rml:source "calidad_aire_normalizado.csv";
+		rml:referenceFormulation ql:CSV
+
+	];
+	rr:subjectMap [
+		a rr:SubjectMap;
+		rr:template "https://example.org/recurso/sensor/{refDevice}/NO2";
+	];
+	rr:predicateObjectMap [
+		rr:predicateMap [
+			a rr:PredicateMap;
+			rr:constant rdf:type;
+		];
+		rr:objectMap [
+			a rr:ObjectMap;
+			rr:constant edintmed:EnvironmentalSensor;
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicateMap [
+			a rr:PredicateMap;
+			rr:constant dct:identifier;
+		];
+		rr:objectMap [
+			a rr:ObjectMap;
+			rr:template "{refDevice}-NO2";
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicateMap [
+			a rr:PredicateMap;
+			rr:constant edintmed:hasSensorType;
+		];
+		rr:objectMap [
+			a rr:ObjectMap;
+			rr:constant edintkos-sensortypes:AirQualitySensor;
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicateMap [
+			a rr:PredicateMap;
+			rr:constant sosa:isHostedBy;
+		];
+		rr:objectMap [
+			a rr:ObjectMap;
+			rr:template "https://example.org/recurso/plataforma/{refDevice}";
+			rr:termType rr:IRI
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicateMap [
+			a rr:PredicateMap;
+			rr:constant sosa:observes;
+		];
+		rr:objectMap [
+			a rr:ObjectMap;
+			rr:constant edintkos-vars:NO2Concentration;
+		];
+	].
+
+
+<sensor_O3_0> a rr:TriplesMap;
+
+	rml:logicalSource [
+		a rml:LogicalSource;
+		rml:source "calidad_aire_normalizado.csv";
+		rml:referenceFormulation ql:CSV
+
+	];
+	rr:subjectMap [
+		a rr:SubjectMap;
+		rr:template "https://example.org/recurso/sensor/{refDevice}/O3";
+	];
+	rr:predicateObjectMap [
+		rr:predicateMap [
+			a rr:PredicateMap;
+			rr:constant rdf:type;
+		];
+		rr:objectMap [
+			a rr:ObjectMap;
+			rr:constant edintmed:EnvironmentalSensor;
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicateMap [
+			a rr:PredicateMap;
+			rr:constant dct:identifier;
+		];
+		rr:objectMap [
+			a rr:ObjectMap;
+			rr:template "{refDevice}-O3";
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicateMap [
+			a rr:PredicateMap;
+			rr:constant edintmed:hasSensorType;
+		];
+		rr:objectMap [
+			a rr:ObjectMap;
+			rr:constant edintkos-sensortypes:AirQualitySensor;
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicateMap [
+			a rr:PredicateMap;
+			rr:constant sosa:isHostedBy;
+		];
+		rr:objectMap [
+			a rr:ObjectMap;
+			rr:template "https://example.org/recurso/plataforma/{refDevice}";
+			rr:termType rr:IRI
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicateMap [
+			a rr:PredicateMap;
+			rr:constant sosa:observes;
+		];
+		rr:objectMap [
+			a rr:ObjectMap;
+			rr:constant edintkos-vars:O3Concentration;
+		];
+	].
+
+
+<sensor_SO2_0> a rr:TriplesMap;
+
+	rml:logicalSource [
+		a rml:LogicalSource;
+		rml:source "calidad_aire_normalizado.csv";
+		rml:referenceFormulation ql:CSV
+
+	];
+	rr:subjectMap [
+		a rr:SubjectMap;
+		rr:template "https://example.org/recurso/sensor/{refDevice}/SO2";
+	];
+	rr:predicateObjectMap [
+		rr:predicateMap [
+			a rr:PredicateMap;
+			rr:constant rdf:type;
+		];
+		rr:objectMap [
+			a rr:ObjectMap;
+			rr:constant edintmed:EnvironmentalSensor;
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicateMap [
+			a rr:PredicateMap;
+			rr:constant dct:identifier;
+		];
+		rr:objectMap [
+			a rr:ObjectMap;
+			rr:template "{refDevice}-SO2";
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicateMap [
+			a rr:PredicateMap;
+			rr:constant edintmed:hasSensorType;
+		];
+		rr:objectMap [
+			a rr:ObjectMap;
+			rr:constant edintkos-sensortypes:AirQualitySensor;
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicateMap [
+			a rr:PredicateMap;
+			rr:constant sosa:isHostedBy;
+		];
+		rr:objectMap [
+			a rr:ObjectMap;
+			rr:template "https://example.org/recurso/plataforma/{refDevice}";
+			rr:termType rr:IRI
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicateMap [
+			a rr:PredicateMap;
+			rr:constant sosa:observes;
+		];
+		rr:objectMap [
+			a rr:ObjectMap;
+			rr:constant edintkos-vars:SO2Concentration;
+		];
+	].
+
+
+<observation_CO_0> a rr:TriplesMap;
+
+	rml:logicalSource [
+		a rml:LogicalSource;
+		rml:source "calidad_aire_normalizado.csv";
+		rml:referenceFormulation ql:CSV
+
+	];
+	rr:subjectMap [
+		a rr:SubjectMap;
+		rr:template "https://example.org/recurso/observacion/{_id}/CO";
+	];
+	rr:predicateObjectMap [
+		rr:predicateMap [
+			a rr:PredicateMap;
+			rr:constant rdf:type;
+		];
+		rr:objectMap [
+			a rr:ObjectMap;
+			rr:constant edintmed:EnvironmentalObservation;
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicateMap [
+			a rr:PredicateMap;
+			rr:constant sosa:madeBySensor;
+		];
+		rr:objectMap [
+			a rr:ObjectMap;
+			rr:template "https://example.org/recurso/sensor/{refDevice}/CO";
+			rr:termType rr:IRI
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicateMap [
+			a rr:PredicateMap;
+			rr:constant sosa:observedProperty;
+		];
+		rr:objectMap [
+			a rr:ObjectMap;
+			rr:constant edintkos-vars:COConcentration;
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicateMap [
+			a rr:PredicateMap;
+			rr:constant sosa:hasFeatureOfInterest;
+		];
+		rr:objectMap [
+			a rr:ObjectMap;
+			rr:constant edintkos-foi:Air;
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicateMap [
+			a rr:PredicateMap;
+			rr:constant sosa:phenomenonTime;
+		];
+		rr:objectMap [
+			a rr:ObjectMap;
+			rr:template "https://example.org/recurso/instante/{_id}";
+			rr:termType rr:IRI
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicateMap [
+			a rr:PredicateMap;
+			rr:constant sosa:hasResult;
+		];
+		rr:objectMap [
+			a rr:ObjectMap;
+			rr:template "https://example.org/recurso/resultadoObservacion/{_id}/CO";
+			rr:termType rr:IRI
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicateMap [
+			a rr:PredicateMap;
+			rr:constant dct:publisher;
+		];
+		rr:objectMap [
+			a rr:ObjectMap;
+			rml:reference "dataProvider";
+			rr:datatype xsd:anyURI
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicateMap [
+			a rr:PredicateMap;
+			rr:constant dct:source;
+		];
+		rr:objectMap [
+			a rr:ObjectMap;
+			rml:reference "source";
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicateMap [
+			a rr:PredicateMap;
+			rr:constant dct:identifier;
+		];
+		rr:objectMap [
+			a rr:ObjectMap;
+			rr:template "{entityId}-{_id}-CO";
+			rr:termType rr:Literal
+		];
+	].
+
+
+<result_CO_0> a rr:TriplesMap;
+
+	rml:logicalSource [
+		a rml:LogicalSource;
+		rml:source "calidad_aire_normalizado.csv";
+		rml:referenceFormulation ql:CSV
+
+	];
+	rr:subjectMap [
+		a rr:SubjectMap;
+		rr:template "https://example.org/recurso/resultadoObservacion/{_id}/CO";
+	];
+	rr:predicateObjectMap [
+		rr:predicateMap [
+			a rr:PredicateMap;
+			rr:constant rdf:type;
+		];
+		rr:objectMap [
+			a rr:ObjectMap;
+			rr:constant qudt:QuantityValue;
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicateMap [
+			a rr:PredicateMap;
+			rr:constant qudt:value;
+		];
+		rr:objectMap [
+			a rr:ObjectMap;
+			rml:reference "CO";
+		];
+	].
+
+
+<observation_H2S_0> a rr:TriplesMap;
+
+	rml:logicalSource [
+		a rml:LogicalSource;
+		rml:source "calidad_aire_normalizado.csv";
+		rml:referenceFormulation ql:CSV
+
+	];
+	rr:subjectMap [
+		a rr:SubjectMap;
+		rr:template "https://example.org/recurso/observacion/{_id}/H2S";
+	];
+	rr:predicateObjectMap [
+		rr:predicateMap [
+			a rr:PredicateMap;
+			rr:constant rdf:type;
+		];
+		rr:objectMap [
+			a rr:ObjectMap;
+			rr:constant edintmed:EnvironmentalObservation;
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicateMap [
+			a rr:PredicateMap;
+			rr:constant sosa:madeBySensor;
+		];
+		rr:objectMap [
+			a rr:ObjectMap;
+			rr:template "https://example.org/recurso/sensor/{refDevice}/H2S";
+			rr:termType rr:IRI
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicateMap [
+			a rr:PredicateMap;
+			rr:constant sosa:observedProperty;
+		];
+		rr:objectMap [
+			a rr:ObjectMap;
+			rr:constant edintkos-vars:H2SConcentration;
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicateMap [
+			a rr:PredicateMap;
+			rr:constant sosa:hasFeatureOfInterest;
+		];
+		rr:objectMap [
+			a rr:ObjectMap;
+			rr:constant edintkos-foi:Air;
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicateMap [
+			a rr:PredicateMap;
+			rr:constant sosa:phenomenonTime;
+		];
+		rr:objectMap [
+			a rr:ObjectMap;
+			rr:template "https://example.org/recurso/instante/{_id}";
+			rr:termType rr:IRI
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicateMap [
+			a rr:PredicateMap;
+			rr:constant sosa:hasResult;
+		];
+		rr:objectMap [
+			a rr:ObjectMap;
+			rr:template "https://example.org/recurso/resultadoObservacion/{_id}/H2S";
+			rr:termType rr:IRI
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicateMap [
+			a rr:PredicateMap;
+			rr:constant dct:publisher;
+		];
+		rr:objectMap [
+			a rr:ObjectMap;
+			rml:reference "dataProvider";
+			rr:datatype xsd:anyURI
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicateMap [
+			a rr:PredicateMap;
+			rr:constant dct:source;
+		];
+		rr:objectMap [
+			a rr:ObjectMap;
+			rml:reference "source";
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicateMap [
+			a rr:PredicateMap;
+			rr:constant dct:identifier;
+		];
+		rr:objectMap [
+			a rr:ObjectMap;
+			rr:template "{entityId}-{_id}-H2S";
+			rr:termType rr:Literal
+		];
+	].
+
+
+<result_H2S_0> a rr:TriplesMap;
+
+	rml:logicalSource [
+		a rml:LogicalSource;
+		rml:source "calidad_aire_normalizado.csv";
+		rml:referenceFormulation ql:CSV
+
+	];
+	rr:subjectMap [
+		a rr:SubjectMap;
+		rr:template "https://example.org/recurso/resultadoObservacion/{_id}/H2S";
+	];
+	rr:predicateObjectMap [
+		rr:predicateMap [
+			a rr:PredicateMap;
+			rr:constant rdf:type;
+		];
+		rr:objectMap [
+			a rr:ObjectMap;
+			rr:constant qudt:QuantityValue;
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicateMap [
+			a rr:PredicateMap;
+			rr:constant qudt:value;
+		];
+		rr:objectMap [
+			a rr:ObjectMap;
+			rml:reference "H2S";
+		];
+	].
+
+
+<observation_NO_0> a rr:TriplesMap;
+
+	rml:logicalSource [
+		a rml:LogicalSource;
+		rml:source "calidad_aire_normalizado.csv";
+		rml:referenceFormulation ql:CSV
+
+	];
+	rr:subjectMap [
+		a rr:SubjectMap;
+		rr:template "https://example.org/recurso/observacion/{_id}/NO";
+	];
+	rr:predicateObjectMap [
+		rr:predicateMap [
+			a rr:PredicateMap;
+			rr:constant rdf:type;
+		];
+		rr:objectMap [
+			a rr:ObjectMap;
+			rr:constant edintmed:EnvironmentalObservation;
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicateMap [
+			a rr:PredicateMap;
+			rr:constant sosa:madeBySensor;
+		];
+		rr:objectMap [
+			a rr:ObjectMap;
+			rr:template "https://example.org/recurso/sensor/{refDevice}/NO";
+			rr:termType rr:IRI
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicateMap [
+			a rr:PredicateMap;
+			rr:constant sosa:observedProperty;
+		];
+		rr:objectMap [
+			a rr:ObjectMap;
+			rr:constant edintkos-vars:NOConcentration;
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicateMap [
+			a rr:PredicateMap;
+			rr:constant sosa:hasFeatureOfInterest;
+		];
+		rr:objectMap [
+			a rr:ObjectMap;
+			rr:constant edintkos-foi:Air;
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicateMap [
+			a rr:PredicateMap;
+			rr:constant sosa:phenomenonTime;
+		];
+		rr:objectMap [
+			a rr:ObjectMap;
+			rr:template "https://example.org/recurso/instante/{_id}";
+			rr:termType rr:IRI
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicateMap [
+			a rr:PredicateMap;
+			rr:constant sosa:hasResult;
+		];
+		rr:objectMap [
+			a rr:ObjectMap;
+			rr:template "https://example.org/recurso/resultadoObservacion/{_id}/NO";
+			rr:termType rr:IRI
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicateMap [
+			a rr:PredicateMap;
+			rr:constant dct:publisher;
+		];
+		rr:objectMap [
+			a rr:ObjectMap;
+			rml:reference "dataProvider";
+			rr:datatype xsd:anyURI
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicateMap [
+			a rr:PredicateMap;
+			rr:constant dct:source;
+		];
+		rr:objectMap [
+			a rr:ObjectMap;
+			rml:reference "source";
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicateMap [
+			a rr:PredicateMap;
+			rr:constant dct:identifier;
+		];
+		rr:objectMap [
+			a rr:ObjectMap;
+			rr:template "{entityId}-{_id}-NO";
+			rr:termType rr:Literal
+		];
+	].
+
+
+<result_NO_0> a rr:TriplesMap;
+
+	rml:logicalSource [
+		a rml:LogicalSource;
+		rml:source "calidad_aire_normalizado.csv";
+		rml:referenceFormulation ql:CSV
+
+	];
+	rr:subjectMap [
+		a rr:SubjectMap;
+		rr:template "https://example.org/recurso/resultadoObservacion/{_id}/NO";
+	];
+	rr:predicateObjectMap [
+		rr:predicateMap [
+			a rr:PredicateMap;
+			rr:constant rdf:type;
+		];
+		rr:objectMap [
+			a rr:ObjectMap;
+			rr:constant qudt:QuantityValue;
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicateMap [
+			a rr:PredicateMap;
+			rr:constant qudt:value;
+		];
+		rr:objectMap [
+			a rr:ObjectMap;
+			rml:reference "NO";
+		];
+	].
+
+
+<observation_NO2_0> a rr:TriplesMap;
+
+	rml:logicalSource [
+		a rml:LogicalSource;
+		rml:source "calidad_aire_normalizado.csv";
+		rml:referenceFormulation ql:CSV
+
+	];
+	rr:subjectMap [
+		a rr:SubjectMap;
+		rr:template "https://example.org/recurso/observacion/{_id}/NO2";
+	];
+	rr:predicateObjectMap [
+		rr:predicateMap [
+			a rr:PredicateMap;
+			rr:constant rdf:type;
+		];
+		rr:objectMap [
+			a rr:ObjectMap;
+			rr:constant edintmed:EnvironmentalObservation;
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicateMap [
+			a rr:PredicateMap;
+			rr:constant sosa:madeBySensor;
+		];
+		rr:objectMap [
+			a rr:ObjectMap;
+			rr:template "https://example.org/recurso/sensor/{refDevice}/NO2";
+			rr:termType rr:IRI
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicateMap [
+			a rr:PredicateMap;
+			rr:constant sosa:observedProperty;
+		];
+		rr:objectMap [
+			a rr:ObjectMap;
+			rr:constant edintkos-vars:NO2Concentration;
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicateMap [
+			a rr:PredicateMap;
+			rr:constant sosa:hasFeatureOfInterest;
+		];
+		rr:objectMap [
+			a rr:ObjectMap;
+			rr:constant edintkos-foi:Air;
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicateMap [
+			a rr:PredicateMap;
+			rr:constant sosa:phenomenonTime;
+		];
+		rr:objectMap [
+			a rr:ObjectMap;
+			rr:template "https://example.org/recurso/instante/{_id}";
+			rr:termType rr:IRI
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicateMap [
+			a rr:PredicateMap;
+			rr:constant sosa:hasResult;
+		];
+		rr:objectMap [
+			a rr:ObjectMap;
+			rr:template "https://example.org/recurso/resultadoObservacion/{_id}/NO2";
+			rr:termType rr:IRI
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicateMap [
+			a rr:PredicateMap;
+			rr:constant dct:publisher;
+		];
+		rr:objectMap [
+			a rr:ObjectMap;
+			rml:reference "dataProvider";
+			rr:datatype xsd:anyURI
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicateMap [
+			a rr:PredicateMap;
+			rr:constant dct:source;
+		];
+		rr:objectMap [
+			a rr:ObjectMap;
+			rml:reference "source";
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicateMap [
+			a rr:PredicateMap;
+			rr:constant dct:identifier;
+		];
+		rr:objectMap [
+			a rr:ObjectMap;
+			rr:template "{entityId}-{_id}-NO2";
+			rr:termType rr:Literal
+		];
+	].
+
+
+<result_NO2_0> a rr:TriplesMap;
+
+	rml:logicalSource [
+		a rml:LogicalSource;
+		rml:source "calidad_aire_normalizado.csv";
+		rml:referenceFormulation ql:CSV
+
+	];
+	rr:subjectMap [
+		a rr:SubjectMap;
+		rr:template "https://example.org/recurso/resultadoObservacion/{_id}/NO2";
+	];
+	rr:predicateObjectMap [
+		rr:predicateMap [
+			a rr:PredicateMap;
+			rr:constant rdf:type;
+		];
+		rr:objectMap [
+			a rr:ObjectMap;
+			rr:constant qudt:QuantityValue;
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicateMap [
+			a rr:PredicateMap;
+			rr:constant qudt:value;
+		];
+		rr:objectMap [
+			a rr:ObjectMap;
+			rml:reference "NO2";
+		];
+	].
+
+
+<observation_O3_0> a rr:TriplesMap;
+
+	rml:logicalSource [
+		a rml:LogicalSource;
+		rml:source "calidad_aire_normalizado.csv";
+		rml:referenceFormulation ql:CSV
+
+	];
+	rr:subjectMap [
+		a rr:SubjectMap;
+		rr:template "https://example.org/recurso/observacion/{_id}/O3";
+	];
+	rr:predicateObjectMap [
+		rr:predicateMap [
+			a rr:PredicateMap;
+			rr:constant rdf:type;
+		];
+		rr:objectMap [
+			a rr:ObjectMap;
+			rr:constant edintmed:EnvironmentalObservation;
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicateMap [
+			a rr:PredicateMap;
+			rr:constant sosa:madeBySensor;
+		];
+		rr:objectMap [
+			a rr:ObjectMap;
+			rr:template "https://example.org/recurso/sensor/{refDevice}/O3";
+			rr:termType rr:IRI
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicateMap [
+			a rr:PredicateMap;
+			rr:constant sosa:observedProperty;
+		];
+		rr:objectMap [
+			a rr:ObjectMap;
+			rr:constant edintkos-vars:O3Concentration;
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicateMap [
+			a rr:PredicateMap;
+			rr:constant sosa:hasFeatureOfInterest;
+		];
+		rr:objectMap [
+			a rr:ObjectMap;
+			rr:constant edintkos-foi:Air;
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicateMap [
+			a rr:PredicateMap;
+			rr:constant sosa:phenomenonTime;
+		];
+		rr:objectMap [
+			a rr:ObjectMap;
+			rr:template "https://example.org/recurso/instante/{_id}";
+			rr:termType rr:IRI
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicateMap [
+			a rr:PredicateMap;
+			rr:constant sosa:hasResult;
+		];
+		rr:objectMap [
+			a rr:ObjectMap;
+			rr:template "https://example.org/recurso/resultadoObservacion/{_id}/O3";
+			rr:termType rr:IRI
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicateMap [
+			a rr:PredicateMap;
+			rr:constant dct:publisher;
+		];
+		rr:objectMap [
+			a rr:ObjectMap;
+			rml:reference "dataProvider";
+			rr:datatype xsd:anyURI
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicateMap [
+			a rr:PredicateMap;
+			rr:constant dct:source;
+		];
+		rr:objectMap [
+			a rr:ObjectMap;
+			rml:reference "source";
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicateMap [
+			a rr:PredicateMap;
+			rr:constant dct:identifier;
+		];
+		rr:objectMap [
+			a rr:ObjectMap;
+			rr:template "{entityId}-{_id}-O3";
+			rr:termType rr:Literal
+		];
+	].
+
+
+<result_O3_0> a rr:TriplesMap;
+
+	rml:logicalSource [
+		a rml:LogicalSource;
+		rml:source "calidad_aire_normalizado.csv";
+		rml:referenceFormulation ql:CSV
+
+	];
+	rr:subjectMap [
+		a rr:SubjectMap;
+		rr:template "https://example.org/recurso/resultadoObservacion/{_id}/O3";
+	];
+	rr:predicateObjectMap [
+		rr:predicateMap [
+			a rr:PredicateMap;
+			rr:constant rdf:type;
+		];
+		rr:objectMap [
+			a rr:ObjectMap;
+			rr:constant qudt:QuantityValue;
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicateMap [
+			a rr:PredicateMap;
+			rr:constant qudt:value;
+		];
+		rr:objectMap [
+			a rr:ObjectMap;
+			rml:reference "O3";
+		];
+	].
+
+
+<observation_SO2_0> a rr:TriplesMap;
+
+	rml:logicalSource [
+		a rml:LogicalSource;
+		rml:source "calidad_aire_normalizado.csv";
+		rml:referenceFormulation ql:CSV
+
+	];
+	rr:subjectMap [
+		a rr:SubjectMap;
+		rr:template "https://example.org/recurso/observacion/{_id}/SO2";
+	];
+	rr:predicateObjectMap [
+		rr:predicateMap [
+			a rr:PredicateMap;
+			rr:constant rdf:type;
+		];
+		rr:objectMap [
+			a rr:ObjectMap;
+			rr:constant edintmed:EnvironmentalObservation;
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicateMap [
+			a rr:PredicateMap;
+			rr:constant sosa:madeBySensor;
+		];
+		rr:objectMap [
+			a rr:ObjectMap;
+			rr:template "https://example.org/recurso/sensor/{refDevice}/SO2";
+			rr:termType rr:IRI
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicateMap [
+			a rr:PredicateMap;
+			rr:constant sosa:observedProperty;
+		];
+		rr:objectMap [
+			a rr:ObjectMap;
+			rr:constant edintkos-vars:SO2Concentration;
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicateMap [
+			a rr:PredicateMap;
+			rr:constant sosa:hasFeatureOfInterest;
+		];
+		rr:objectMap [
+			a rr:ObjectMap;
+			rr:constant edintkos-foi:Air;
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicateMap [
+			a rr:PredicateMap;
+			rr:constant sosa:phenomenonTime;
+		];
+		rr:objectMap [
+			a rr:ObjectMap;
+			rr:template "https://example.org/recurso/instante/{_id}";
+			rr:termType rr:IRI
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicateMap [
+			a rr:PredicateMap;
+			rr:constant sosa:hasResult;
+		];
+		rr:objectMap [
+			a rr:ObjectMap;
+			rr:template "https://example.org/recurso/resultadoObservacion/{_id}/SO2";
+			rr:termType rr:IRI
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicateMap [
+			a rr:PredicateMap;
+			rr:constant dct:publisher;
+		];
+		rr:objectMap [
+			a rr:ObjectMap;
+			rml:reference "dataProvider";
+			rr:datatype xsd:anyURI
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicateMap [
+			a rr:PredicateMap;
+			rr:constant dct:source;
+		];
+		rr:objectMap [
+			a rr:ObjectMap;
+			rml:reference "source";
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicateMap [
+			a rr:PredicateMap;
+			rr:constant dct:identifier;
+		];
+		rr:objectMap [
+			a rr:ObjectMap;
+			rr:template "{entityId}-{_id}-SO2";
+			rr:termType rr:Literal
+		];
+	].
+
+
+<result_SO2_0> a rr:TriplesMap;
+
+	rml:logicalSource [
+		a rml:LogicalSource;
+		rml:source "calidad_aire_normalizado.csv";
+		rml:referenceFormulation ql:CSV
+
+	];
+	rr:subjectMap [
+		a rr:SubjectMap;
+		rr:template "https://example.org/recurso/resultadoObservacion/{_id}/SO2";
+	];
+	rr:predicateObjectMap [
+		rr:predicateMap [
+			a rr:PredicateMap;
+			rr:constant rdf:type;
+		];
+		rr:objectMap [
+			a rr:ObjectMap;
+			rr:constant qudt:QuantityValue;
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicateMap [
+			a rr:PredicateMap;
+			rr:constant qudt:value;
+		];
+		rr:objectMap [
+			a rr:ObjectMap;
+			rml:reference "SO2";
+		];
+	].
+
+
+<phenomenon_time_0> a rr:TriplesMap;
+
+	rml:logicalSource [
+		a rml:LogicalSource;
+		rml:source "calidad_aire_normalizado.csv";
+		rml:referenceFormulation ql:CSV
+
+	];
+	rr:subjectMap [
+		a rr:SubjectMap;
+		rr:template "https://example.org/recurso/instante/{_id}";
+	];
+	rr:predicateObjectMap [
+		rr:predicateMap [
+			a rr:PredicateMap;
+			rr:constant rdf:type;
+		];
+		rr:objectMap [
+			a rr:ObjectMap;
+			rr:constant time:Instant;
+		];
+	];
+	rr:predicateObjectMap [
+		rr:predicateMap [
+			a rr:PredicateMap;
+			rr:constant time:inXSDDateTime;
+		];
+		rr:objectMap [
+			a rr:ObjectMap;
+			rml:reference "recvTime";
+			rr:datatype xsd:dateTime
+		];
+	].
+
+
