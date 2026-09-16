@@ -1,6 +1,6 @@
 prefixes:
-#  edintmed: https://edint.es/def/medioambiente#
-  edintmed: https://edint.es/def/medioambiente#
+#  edintmed: https://edint.es/def/medio-ambiente#
+  edintmed: https://edint.es/def/medio-ambiente#
   dct: http://purl.org/dc/terms/
   geo: http://www.w3.org/2003/01/geo/wgs84_pos#
   gsp: http://www.opengis.net/ont/geosparql#
