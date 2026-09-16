@@ -7,9 +7,9 @@ prefixes:
   sosa: http://www.w3.org/ns/sosa/
   qudt: http://qudt.org/schema/qudt/
 #  edintkos-vars: https://edint.es/kos/EnvironmentalProperty/
-  edintkos-vars: https://edint.es/kos/edint/EnvironmentalProperty/
-  edintkos-sensortypes: https://edint.es/kos/edint/sensortypes/
-  edintkos-foi: https://edint.es/kos/edint/foi/
+  edintkos-vars: https://edint.es/kos/EnvironmentalProperty/
+  edintkos-sensortypes: https://edint.es/kos/SensorTypes/
+  edintkos-foi: https://edint.es/kos/FeaturesOfInterest/
   unit: http://qudt.org/vocab/unit/
   time: http://www.w3.org/2006/time#
 

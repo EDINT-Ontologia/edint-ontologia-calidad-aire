@@ -4,9 +4,9 @@
 @prefix gsp: <http://www.opengis.net/ont/geosparql#>.
 @prefix sosa: <http://www.w3.org/ns/sosa/>.
 @prefix qudt: <http://qudt.org/schema/qudt/>.
-@prefix edintkos-vars: <https://edint.es/kos/edint/EnvironmentalProperty/>.
-@prefix edintkos-sensortypes: <https://edint.es/kos/edint/sensortypes/>.
-@prefix edintkos-foi: <https://edint.es/kos/edint/foi/>.
+@prefix edintkos-vars: <https://edint.es/kos/EnvironmentalProperty/>.
+@prefix edintkos-sensortypes: <https://edint.es/kos/SensorTypes/>.
+@prefix edintkos-foi: <https://edint.es/kos/FeaturesOfInterest/>.
 @prefix unit: <http://qudt.org/vocab/unit/>.
 @prefix time: <http://www.w3.org/2006/time#>.
 @prefix rr: <http://www.w3.org/ns/r2rml#>.
