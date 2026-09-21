@@ -1,6 +1,6 @@
 # Ontología EDINT de Sensores Medioambientales, caso Calidad del Aire (EDINT Environmental Sensors Ontology)
 
-Este repositorio reutiliza el patrón general definido en la [Ontología de Medioambiente](https://github.com/oeg-upm/edint-ontologia-medio-ambiente/tree/a09f6a58ac148cebdec8d7ac49f0ba707cbda6ac) para representar estaciones, sensores y observaciones medioambientales. En dicha ontología, se adopta una modelización común basada en una plataforma de sensores (`SensorPlatform`), sensores medioambientales (`EnvironmentalSensor`) y observaciones medioambientales (`EnvironmentalObservation`).
+Este repositorio reutiliza el patrón general definido en la [Ontología de Medioambiente](https://github.com/EDINT-Ontologia/edint-ontologia-medio-ambiente/tree/a09f6a58ac148cebdec8d7ac49f0ba707cbda6ac) para representar estaciones, sensores y observaciones medioambientales. En dicha ontología, se adopta una modelización común basada en una plataforma de sensores (`SensorPlatform`), sensores medioambientales (`EnvironmentalSensor`) y observaciones medioambientales (`EnvironmentalObservation`).
 
 En este caso, dicho patrón se aplica específicamente al dominio de la calidad del aire. Para ello, la especialización no se realiza a través de vocabularios controlados SKOS que permiten clasificar y restringir semánticamente los elementos del modelo.
 
