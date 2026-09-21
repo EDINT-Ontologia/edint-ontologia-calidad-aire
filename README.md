@@ -20,7 +20,7 @@ En la carpeta [`./examples`](./examples) se incluye una serie de ejemplos que mu
 | ------------------- | ------------------------------------------------------------------------------------------------------------------------ |
 | **examples/** | Incluye ejemplos que demuestran cómo instanciar o aplicar la ontología en escenarios de datos reales. |
 | **diagrams/**   | Contiene el diagrama con instancias relacionadas a los conceptos de la Ontología de Sensores Medioambientales. |
-| **mappings/**   | Contiene las reglas para transformar fuentes de datos a la representación RDF utilizando los Sensores Medioambientales. |
+| **mappings/**   | Incluye mappings RML que ejemplifican la transformación de orígenes de datos en datos enlazados. |
 
 
 # Diagrama con ejemplo de Calidad del Aire (Diagram with an Air Quality Example)
