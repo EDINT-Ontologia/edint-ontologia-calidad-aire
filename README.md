@@ -17,9 +17,16 @@ En la carpeta [`./examples`](./examples) se incluye una serie de ejemplos que mu
 # Estructura del repositorio (Repository structure)
 
 | Folder              | Description                                                                                             |
-| ------------------- | ------------------------------------------------------------------------------------------------------- |
+| ------------------- | ------------------------------------------------------------------------------------------------------------------------ |
 | **examples/** | Incluye ejemplos que demuestran cómo instanciar o aplicar la ontología en escenarios de datos reales. |
-| **shapes/**   | Contiene los SHACL utilizadas para definir y validar las restricciones de la ontología.                |
+| **diagrams/**   | Contiene el diagrama con instancias relacionadas a los conceptos de la Ontología de Sensores Medioambientales. |
+| **mappings/**   | Contiene las reglas para transformar fuentes de datos a la representación RDF utilizando los Sensores Medioambientales. |
+
+
+# Diagrama con ejemplo de Calidad del Aire (Diagram with an Air Quality Example)
+## Ejemplo de utilización de la Ontología de Sensores Medioambientales para Calidad del Aire 
+
+![Diagrana con ejemplo Calidad del Aire](diagrams/diagram.png)
 
 # Mantenimiento y evolución (Maintenance and evolution)
 
