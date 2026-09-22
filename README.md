@@ -28,6 +28,12 @@ En la carpeta [`./examples`](./examples) se incluye una serie de ejemplos que mu
 
 ![Diagrana con ejemplo Calidad del Aire](diagrams/diagram.png)
 
+Este ejemplo ilustra la utilización de la Ontología de Sensores Medioambientales para el dominio de Calidad del Aire. De esta manera se tiene una estación de calidad del aire con identificador "AQ_001" que es una instancia de `edintmed:SensorPlatform`. Esta estación tiene un `edintmed:environmrntalSensor` con identificador "AQS_001" que está `sosa:hostedBy` (alojado por) la estación. Su tipo dentro de la taxonomía SKOS de `kos:SensorTypes` es "AirQualitySensor". Note que la ontología de sensores medioambientales contempla que la estación sea subclase de `geosparql:Feature`, por lo cual se pueden representar sus datos geoespaciales.
+
+El sensor tiene como `schema:manufacturer`(fabricante) a la empresa "AirTech". En la figura se representa una observación de NO2 (Dióxido de Nitrógeno) que es una instancia de `edintmed:EnvironmentalObservation`. Es decir que la propiedad `sosa:observedProperty` (propiedad observada) enlaza a la observación con un `edintmed:EnvironmentalProperty`, "NO2Concentration", valor que pertenece a la taxonomía SKOS de `kos:EnvironmentalProperty`. 
+
+La observación `sosa:hasFeatureOfInterest`(tiene una característica de interés) que se mide, en este caso "Air" y que pertenece a una taxonomía SKOS de `kos:FeaturesOfInterest`. La observación `sosa:hasSimpleResult`(tiene un valor de resultado) de "26.0" en una unidad que es "MicroGM-Per-M3", la cual es una instancia de `unit:Unit`y que refleja la concentración de dióxido de nitrógeno por metro cúbico. 
+
 # Mantenimiento y evolución (Maintenance and evolution)
 
 Para manejar las incidencias o mejoras sugeridas con respecto a la ontología, recomendamos seguir las guías proporcionadas en ([Issues Management](./ISSUES.md)) para generar una incidencia.
