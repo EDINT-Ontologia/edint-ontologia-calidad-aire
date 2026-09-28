@@ -26,7 +26,7 @@
                                       <http://purl.org/dc/terms/publisher> _:genid6 ;
                                       <http://purl.org/dc/terms/title> "EDINT Environmental Sensors Ontology, Air Quality Case"@en ,
                                                                        "Ontología EDINT de Sensores Medioambientales, caso Calidad del Aire"@es ;
-                                      <http://purl.org/vocab/vann/preferredNamespacePrefix> "edintmed" ;
+                                      <http://purl.org/vocab/vann/preferredNamespacePrefix> "edintcalaire" ;
                                       <http://purl.org/vocab/vann/preferredNamespaceUri> <https://edint.es/def/calidad-aire#> ;
                                       rdfs:label "Air Quality"@en ,
                                                  "Calidad del Aire"@es ;
