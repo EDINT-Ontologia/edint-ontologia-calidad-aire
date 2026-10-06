@@ -9,9 +9,9 @@
      xmlns:vann="http://purl.org/vocab/vann/">
 
     <owl:Ontology rdf:about="https://edint.es/def/calidad-aire#">
-        <owl:versionIRI rdf:resource="https://edint.es/def/calidad-aire/0.1.0"/>
+        <owl:versionIRI rdf:resource="https://edint.es/def/calidad-aire/0.2.2"/>
         <owl:imports rdf:resource="https://edint.es/def/medio-ambiente#"/>
-        <owl:versionInfo>0.1.0</owl:versionInfo>
+        <owl:versionInfo>0.2.2</owl:versionInfo>
         <dcterms:title xml:lang="en">EDINT Environmental Sensors Ontology, Air Quality Case</dcterms:title>
         <dcterms:title xml:lang="es">Ontología EDINT de Sensores Medioambientales, caso Calidad del Aire</dcterms:title>
         <dcterms:abstract xml:lang="en">Ontology for representing air quality data. It reuses the Environmental Sensors pattern to represent stations, sensors and air quality observations (NO2, O3, PM10, etc.).</dcterms:abstract>

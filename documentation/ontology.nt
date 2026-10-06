@@ -1,10 +1,10 @@
 <https://edint.es/def/calidad-aire#> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Ontology> .
-<https://edint.es/def/calidad-aire#> <http://www.w3.org/2002/07/owl#versionIRI> <https://edint.es/def/calidad-aire/0.1.0> .
+<https://edint.es/def/calidad-aire#> <http://www.w3.org/2002/07/owl#versionIRI> <https://edint.es/def/calidad-aire/0.2.2> .
 <https://edint.es/def/calidad-aire#> <http://purl.org/dc/terms/abstract> "Ontology for representing air quality data. It reuses the Environmental Sensors pattern to represent stations, sensors and air quality observations (NO2, O3, PM10, etc.)."@en .
 <https://edint.es/def/calidad-aire#> <http://purl.org/dc/terms/abstract> "Ontología para la representación de datos de calidad del aire. Reutiliza el patrón de Sensores Medioambientales para representar estaciones, sensores y observaciones de calidad del aire (NO2, O3, PM10, etc.)."@es .
-<https://edint.es/def/calidad-aire#> <http://purl.org/dc/terms/bibliographicCitation> "EDINT Environmental Sensors Ontology, Air Quality Case. EDINT. Revision: v0.1.0."@en .
-<https://edint.es/def/calidad-aire#> <http://purl.org/dc/terms/bibliographicCitation> "Ontología EDINT de Sensores Medioambientales, caso Calidad del Aire. EDINT. Revisión: v0.1.0."@es .
-<https://edint.es/def/calidad-aire#> <http://purl.org/dc/terms/created> "2026-09-23"^^<http://www.w3.org/2001/XMLSchema#date> .
+<https://edint.es/def/calidad-aire#> <http://purl.org/dc/terms/bibliographicCitation> "EDINT Environmental Sensors Ontology, Air Quality Case. EDINT. Revision: v0.2.2."@en .
+<https://edint.es/def/calidad-aire#> <http://purl.org/dc/terms/bibliographicCitation> "Ontología EDINT de Sensores Medioambientales, caso Calidad del Aire. EDINT. Revisión: v0.2.2."@es .
+<https://edint.es/def/calidad-aire#> <http://purl.org/dc/terms/created> "2026-10-06"^^<http://www.w3.org/2001/XMLSchema#date> .
 <https://edint.es/def/calidad-aire#> <http://purl.org/dc/terms/creator> _:genid1 .
 _:genid1 <https://schema.org/affiliation> <https://oeg.fi.upm.es/> .
 _:genid1 <http://xmlns.com/foaf/0.1/name> "Daniel Doña" .
@@ -22,9 +22,9 @@ _:genid5 <https://schema.org/affiliation> <https://oeg.fi.upm.es/> .
 _:genid5 <http://xmlns.com/foaf/0.1/name> "Oscar Corcho" .
 <https://edint.es/def/calidad-aire#> <http://purl.org/dc/terms/description> "Ontology for representing air quality data. It reuses the Environmental Sensors pattern to represent stations, sensors and air quality observations (NO2, O3, PM10, etc.)."@en .
 <https://edint.es/def/calidad-aire#> <http://purl.org/dc/terms/description> "Ontología para la representación de datos de calidad del aire. Reutiliza el patrón de Sensores Medioambientales para representar estaciones, sensores y observaciones de calidad del aire (NO2, O3, PM10, etc.)."@es .
-<https://edint.es/def/calidad-aire#> <http://purl.org/dc/terms/issued> "2026-09-23"^^<http://www.w3.org/2001/XMLSchema#date> .
+<https://edint.es/def/calidad-aire#> <http://purl.org/dc/terms/issued> "2026-10-06"^^<http://www.w3.org/2001/XMLSchema#date> .
 <https://edint.es/def/calidad-aire#> <http://purl.org/dc/terms/license> <https://creativecommons.org/licenses/by-sa/4.0/> .
-<https://edint.es/def/calidad-aire#> <http://purl.org/dc/terms/modified> "2026-09-23"^^<http://www.w3.org/2001/XMLSchema#date> .
+<https://edint.es/def/calidad-aire#> <http://purl.org/dc/terms/modified> "2026-10-06"^^<http://www.w3.org/2001/XMLSchema#date> .
 <https://edint.es/def/calidad-aire#> <http://purl.org/dc/terms/publisher> _:genid6 .
 _:genid6 <https://schema.org/affiliation> "Federación Española de Municipios y Provincias" .
 _:genid6 <http://xmlns.com/foaf/0.1/name> "FEMP" .
@@ -35,7 +35,7 @@ _:genid6 <http://xmlns.com/foaf/0.1/homepage> <https://www.femp.es/> .
 <https://edint.es/def/calidad-aire#> <http://purl.org/vocab/vann/preferredNamespaceUri> <https://edint.es/def/calidad-aire#> .
 <https://edint.es/def/calidad-aire#> <http://www.w3.org/2000/01/rdf-schema#label> "Air Quality"@en .
 <https://edint.es/def/calidad-aire#> <http://www.w3.org/2000/01/rdf-schema#label> "Calidad del Aire"@es .
-<https://edint.es/def/calidad-aire#> <http://www.w3.org/2002/07/owl#versionInfo> "0.1.0" .
+<https://edint.es/def/calidad-aire#> <http://www.w3.org/2002/07/owl#versionInfo> "0.2.2" .
 <https://edint.es/def/calidad-aire#> <https://schema.org/codeRepository> <https://github.com/EDINT-Ontologia/edint-ontologia-calidad-aire> .
 <https://edint.es/def/calidad-aire#> <https://schema.org/creativeWorkStatus> "Ontology Specification"@en .
 <https://edint.es/def/calidad-aire#> <https://schema.org/funding> "Espacio de Datos para las Infraestructuras Urbanas Inteligentes (EDINT)" .
