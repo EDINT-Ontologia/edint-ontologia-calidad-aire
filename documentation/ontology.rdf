@@ -11,12 +11,12 @@
      xmlns:terms="http://purl.org/dc/terms/"
      xmlns:schema="https://schema.org/">
     <owl:Ontology rdf:about="https://edint.es/def/calidad-aire#">
-        <owl:versionIRI rdf:resource="https://edint.es/def/calidad-aire/0.1.0"/>
+        <owl:versionIRI rdf:resource="https://edint.es/def/calidad-aire/0.2.2"/>
         <terms:abstract xml:lang="en">Ontology for representing air quality data. It reuses the Environmental Sensors pattern to represent stations, sensors and air quality observations (NO2, O3, PM10, etc.).</terms:abstract>
         <terms:abstract xml:lang="es">Ontología para la representación de datos de calidad del aire. Reutiliza el patrón de Sensores Medioambientales para representar estaciones, sensores y observaciones de calidad del aire (NO2, O3, PM10, etc.).</terms:abstract>
         <terms:bibliographicCitation xml:lang="en">EDINT Environmental Sensors Ontology, Air Quality Case. EDINT. Revision: v0.1.0.</terms:bibliographicCitation>
         <terms:bibliographicCitation xml:lang="es">Ontología EDINT de Sensores Medioambientales, caso Calidad del Aire. EDINT. Revisión: v0.1.0.</terms:bibliographicCitation>
-        <terms:created rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2026-09-23</terms:created>
+        <terms:created rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2026-10-06</terms:created>
         <terms:creator rdf:nodeID="genid1"/>
         <terms:creator rdf:nodeID="genid2"/>
         <terms:creator rdf:nodeID="genid3"/>
@@ -24,9 +24,9 @@
         <terms:creator rdf:nodeID="genid5"/>
         <terms:description xml:lang="en">Ontology for representing air quality data. It reuses the Environmental Sensors pattern to represent stations, sensors and air quality observations (NO2, O3, PM10, etc.).</terms:description>
         <terms:description xml:lang="es">Ontología para la representación de datos de calidad del aire. Reutiliza el patrón de Sensores Medioambientales para representar estaciones, sensores y observaciones de calidad del aire (NO2, O3, PM10, etc.).</terms:description>
-        <terms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2026-09-23</terms:issued>
+        <terms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2026-10-06</terms:issued>
         <terms:license rdf:resource="https://creativecommons.org/licenses/by-sa/4.0/"/>
-        <terms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2026-09-23</terms:modified>
+        <terms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2026-10-06</terms:modified>
         <terms:publisher rdf:nodeID="genid6"/>
         <terms:title xml:lang="en">EDINT Environmental Sensors Ontology, Air Quality Case</terms:title>
         <terms:title xml:lang="es">Ontología EDINT de Sensores Medioambientales, caso Calidad del Aire</terms:title>
@@ -34,7 +34,7 @@
         <vann:preferredNamespaceUri rdf:resource="https://edint.es/def/calidad-aire#"/>
         <rdfs:label xml:lang="en">Air Quality</rdfs:label>
         <rdfs:label xml:lang="es">Calidad del Aire</rdfs:label>
-        <owl:versionInfo>0.1.0</owl:versionInfo>
+        <owl:versionInfo>0.2.2</owl:versionInfo>
         <schema:codeRepository rdf:resource="https://github.com/EDINT-Ontologia/edint-ontologia-calidad-aire"/>
         <schema:creativeWorkStatus xml:lang="en">Ontology Specification</schema:creativeWorkStatus>
         <schema:funding>Espacio de Datos para las Infraestructuras Urbanas Inteligentes (EDINT)</schema:funding>
