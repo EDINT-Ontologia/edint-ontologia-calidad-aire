@@ -14,9 +14,11 @@ En particular:
 
 Este enfoque permite reutilizar una misma estructura ontológica para distintos dominios medioambientales, manteniendo la especialización del caso de calidad del aire a través de los KOS y facilitando además la definición de reglas de consistencia y validación.
 
+El prefijo recomendado para esta ontología es `edintcalaire` y su namespace es `https://edint.es/def/calidad-aire`.
+
 En la carpeta [`./examples`](./examples) se incluye una serie de ejemplos que muestran cómo utilizar la Ontología de Medioambiente junto con los vocabularios SKOS para la especialización en calidad del aire. Estos ejemplos ilustran la descripción de estaciones, sensores de calidad del aire, propiedades observadas y observaciones asociadas.
 
-# Estructura del repositorio (Repository structure)
+## Estructura del repositorio (Repository structure)
 
 | Folder              | Description                                                                                             |
 | ------------------- | ------------------------------------------------------------------------------------------------------------------------ |
@@ -25,7 +27,7 @@ En la carpeta [`./examples`](./examples) se incluye una serie de ejemplos que mu
 | **mappings/**   | Incluye mappings RML que ejemplifican la transformación de orígenes de datos en datos enlazados. |
 
 
-# Diagrama con ejemplo de Calidad del Aire (Diagram with an Air Quality Example)
+## Diagrama con ejemplo de Calidad del Aire (Diagram with an Air Quality Example)
 ## Ejemplo de utilización de la Ontología de Sensores Medioambientales para Calidad del Aire 
 
 ![Diagrana con ejemplo Calidad del Aire](diagrams/diagram.png)
@@ -36,11 +38,11 @@ El sensor tiene como `schema:manufacturer`(fabricante) a la empresa "AirTech". E
 
 La observación `sosa:hasFeatureOfInterest`(tiene una característica de interés) que se mide, en este caso "Air" y que pertenece a una taxonomía SKOS de `kos:FeaturesOfInterest`. La observación `sosa:hasSimpleResult`(tiene un valor de resultado) de "26.0" en una unidad que es "MicroGM-Per-M3", la cual es una instancia de `unit:Unit`y que refleja la concentración de dióxido de nitrógeno por metro cúbico. 
 
-# Mantenimiento y evolución (Maintenance and evolution)
+## Mantenimiento y evolución (Maintenance and evolution)
 
 Para manejar las incidencias o mejoras sugeridas con respecto a la ontología, recomendamos seguir las guías proporcionadas en ([Issues Management](./ISSUES.md)) para generar una incidencia.
 
-# Financiación (Funding)
+## Financiación (Funding)
 
 Esta ontología ha sido desarrollada en el contexto del Espacio de Datos para las Infraestructuras Urbanas Inteligentes ([EDINT](https://edint.es/)).
 
