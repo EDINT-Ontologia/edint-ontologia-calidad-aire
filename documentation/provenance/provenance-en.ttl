@@ -10,6 +10,7 @@
 	 prov:wasAttributedTo :agent3;
 	 prov:wasAttributedTo :agent4;
 	 prov:wasAttributedTo <https://github.com/dgarijo/Widoco/>,<http://www.essepuntato.it/lode/>;
+	 prov:specializationOf <https://edint.es/def/calidad-aire>;
 	 prov:wasGeneratedAt "2026-03-23";
 .
 :agent0 a prov:Agent; foaf:name "Daniel Doña".
