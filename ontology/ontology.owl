@@ -65,5 +65,9 @@
         </widoco:vocabularyLabel>
         <vann:preferredNamespacePrefix>edintcalaire</vann:preferredNamespacePrefix>
         <vann:preferredNamespaceUri>https://edint.es/def/calidad-aire#</vann:preferredNamespaceUri>
+        <widoco:rdfxmlSerialization>ontology.rdf</widoco:rdfxmlSerialization>
+        <widoco:turtleSerialization>ontology.ttl</widoco:turtleSerialization>
+        <widoco:ntSerialization>ontology.nt</widoco:ntSerialization>
+        <widoco:jsonldSerialization>ontology.jsonld</widoco:jsonldSerialization>
     </owl:Ontology>
 </rdf:RDF>
