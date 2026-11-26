@@ -42,6 +42,10 @@
         <owl:versionInfo>0.2.2</owl:versionInfo>
         <schema:codeRepository rdf:resource="https://github.com/EDINT-Ontologia/edint-ontologia-calidad-aire"/>
         <schema:funding>Espacio de Datos para las Infraestructuras Urbanas Inteligentes (EDINT)</schema:funding>
+        <vocab:jsonldSerialization>ontology.jsonld</vocab:jsonldSerialization>
+        <vocab:ntSerialization>ontology.nt</vocab:ntSerialization>
+        <vocab:rdfxmlSerialization>ontology.rdf</vocab:rdfxmlSerialization>
+        <vocab:turtleSerialization>ontology.ttl</vocab:turtleSerialization>
         <vocab:vocabularyLabel rdf:nodeID="genid7"/>
     </owl:Ontology>
     <rdf:Description rdf:nodeID="genid1">

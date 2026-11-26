@@ -39,6 +39,10 @@ _:genid6 <http://xmlns.com/foaf/0.1/homepage> <https://www.femp.es/> .
 <https://edint.es/def/calidad-aire> <http://www.w3.org/2002/07/owl#versionInfo> "0.2.2" .
 <https://edint.es/def/calidad-aire> <https://schema.org/codeRepository> <https://github.com/EDINT-Ontologia/edint-ontologia-calidad-aire> .
 <https://edint.es/def/calidad-aire> <https://schema.org/funding> "Espacio de Datos para las Infraestructuras Urbanas Inteligentes (EDINT)" .
+<https://edint.es/def/calidad-aire> <https://w3id.org/widoco/vocab#jsonldSerialization> "ontology.jsonld" .
+<https://edint.es/def/calidad-aire> <https://w3id.org/widoco/vocab#ntSerialization> "ontology.nt" .
+<https://edint.es/def/calidad-aire> <https://w3id.org/widoco/vocab#rdfxmlSerialization> "ontology.rdf" .
+<https://edint.es/def/calidad-aire> <https://w3id.org/widoco/vocab#turtleSerialization> "ontology.ttl" .
 <https://edint.es/def/calidad-aire> <https://w3id.org/widoco/vocab#vocabularyLabel> _:genid7 .
 _:genid7 <https://w3id.org/widoco/vocab#vocabularyIRI> <https://edint.es/def/medio-ambiente> .
 _:genid7 <http://www.w3.org/2000/01/rdf-schema#label> "Sensores Medioambientales (edintmed)"@es .

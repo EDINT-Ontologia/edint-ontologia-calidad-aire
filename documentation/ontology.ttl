@@ -34,6 +34,10 @@
                                      owl:versionInfo "0.2.2" ;
                                      <https://schema.org/codeRepository> <https://github.com/EDINT-Ontologia/edint-ontologia-calidad-aire> ;
                                      <https://schema.org/funding> "Espacio de Datos para las Infraestructuras Urbanas Inteligentes (EDINT)" ;
+                                     <https://w3id.org/widoco/vocab#jsonldSerialization> "ontology.jsonld" ;
+                                     <https://w3id.org/widoco/vocab#ntSerialization> "ontology.nt" ;
+                                     <https://w3id.org/widoco/vocab#rdfxmlSerialization> "ontology.rdf" ;
+                                     <https://w3id.org/widoco/vocab#turtleSerialization> "ontology.ttl" ;
                                      <https://w3id.org/widoco/vocab#vocabularyLabel> _:genid7 .
 
 _:genid1 <http://xmlns.com/foaf/0.1/name> "Edna Ruckhaus" ;

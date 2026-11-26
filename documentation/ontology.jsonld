@@ -149,6 +149,18 @@
   "https://schema.org/funding" : [ {
     "@value" : "Espacio de Datos para las Infraestructuras Urbanas Inteligentes (EDINT)"
   } ],
+  "https://w3id.org/widoco/vocab#jsonldSerialization" : [ {
+    "@value" : "ontology.jsonld"
+  } ],
+  "https://w3id.org/widoco/vocab#ntSerialization" : [ {
+    "@value" : "ontology.nt"
+  } ],
+  "https://w3id.org/widoco/vocab#rdfxmlSerialization" : [ {
+    "@value" : "ontology.rdf"
+  } ],
+  "https://w3id.org/widoco/vocab#turtleSerialization" : [ {
+    "@value" : "ontology.ttl"
+  } ],
   "https://w3id.org/widoco/vocab#vocabularyLabel" : [ {
     "@id" : "_:genid7"
   } ]
