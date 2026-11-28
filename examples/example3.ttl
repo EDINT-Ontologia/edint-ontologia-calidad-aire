@@ -10,7 +10,7 @@
 @prefix edintkos-vars: <https://edint.es/kos/EnvironmentalProperty/> .
 @prefix edintkos-foi: <https://edint.es/kos/FeaturesOfInterest/> .
 @prefix edintkos-sensortypes: <https://edint.es/kos/SensorTypes/> .
-@prefix ex: <http://example.org/air-quality/> .
+@prefix ex: <https://example.org/air-quality/> .
 
 ex:Station_AQ_003 a edintmed:SensorPlatform ;
     rdfs:label "Estación de calidad del aire 3"@es ;
